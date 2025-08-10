@@ -6,9 +6,10 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
-## [Unreleased]
+## [1.0.0] = 2025-08-10
 
 ### Added
+- First public release
 
 ---
 
