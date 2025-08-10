@@ -1,0 +1,16 @@
+{
+    "name": "smuddin/my-plugin",
+    "description": "Write a proper description of your plugin here.",
+    "autoload": {
+        "psr-4": {
+            "Smuddin\\MyPlugin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SM Uddin",
+            "email": "smarif@outlook.com"
+        }
+    ],
+    "require": {}
+}
