@@ -9,11 +9,6 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 ## [Unreleased]
 
 ### Added
-- Added `composer.json` file for `PSR-4` autoloading. Use `composer install`.
-- Added `my-plugin.php` file as main plugin file. Rename the file as necessary.
-- Added `src/Plugin.php` file to define plugin related properties in one place. The `Plugin` class mainly uses static properties. Use it like this, `Plugin::get_name()`. No need for initialization.
-- Added `Loader.php` file to bootstrap the plugin.
-- Localization support with `.pot` file
 
 ---
 
@@ -21,3 +16,9 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ### Added
 - Initial commit with basic plugin header and file structure
+- Added `composer.json` file for `PSR-4` autoloading. Use `composer install`.
+- Added `my-plugin.php` file as main plugin file. Rename the file as necessary.
+- Added `src/Plugin.php` file to define plugin related properties in one place. The `Plugin` class mainly uses static properties. Use it like this, `Plugin::get_name()`. No need for initialization.
+- Added `Loader.php` file to bootstrap the plugin.
+- Localization support with `.pot` file
+- Added check for required plugins and format notice with activation link.
