@@ -4,7 +4,8 @@
     "autoload": {
         "psr-4": {
             "Smuddin\\MyPlugin\\": "src/"
-        }
+        },
+        "files": ["includes/template-functions.php"]
     },
     "authors": [
         {

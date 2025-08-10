@@ -22,3 +22,7 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 - Added `Loader.php` file to bootstrap the plugin.
 - Localization support with `.pot` file
 - Added check for required plugins and format notice with activation link.
+- Added template-function.php file.
+- Added template folder for WooCommerce style template files that can be override in themes.
+- Added sample JS file which uses OOP JS to make global scope clean and avoid conflict.
+- Added PluginFeature.php file to demonstrate commmon functions.

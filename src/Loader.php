@@ -23,6 +23,8 @@ class Loader
 
         // Load text domain for translations
         load_plugin_textdomain( Plugin::get_domain(), false, Plugin::get_domain() . '/languages/' );
+
+        new PluginFeature();
     }
 
     private function check_required_plugins()
