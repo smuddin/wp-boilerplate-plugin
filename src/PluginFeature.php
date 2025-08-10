@@ -8,8 +8,30 @@ class PluginFeature
 {
     public function __construct()
     {
+        add_action( 'init', [ $this, 'register_assets' ] );
+        add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+        
         add_filter( 'woocommerce_locate_template', [ $this, 'load_template' ], 10, 3 );
         add_action( 'some_action', [ $this, 'use_template_file' ] );
+    }
+
+    public function register_assets()
+    {
+        wp_register_style( Plugin::get_domain() . '-admin', Plugin::get_uri( 'assets/css/admin-style.css' ), [], Plugin::get_version() );
+    
+        $params = [
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'i18n' => [
+                'text_postcode' => esc_html__( 'Change postcode', Plugin::get_domain() ),
+            ],
+        ];
+
+        wp_localize_script( Plugin::get_domain() . '-admin', Plugin::get_domain() . '_params', $params );
+    }
+
+    public function enqueue_assets()
+    {
+        wp_enqueue_style( Plugin::get_domain() . '-admin' );
     }
 
     public function use_template_file()
