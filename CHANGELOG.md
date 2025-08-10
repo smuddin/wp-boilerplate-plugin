@@ -9,28 +9,11 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 ## [Unreleased]
 
 ### Added
-- Added composer.json file for PSR-4 autoloading. Use `composer install`.
-- Added my-plugin.php file as main plugin file. Rename the file as necessary.
-- Sample hook and filter registration
+- Added `composer.json` file for `PSR-4` autoloading. Use `composer install`.
+- Added `my-plugin.php` file as main plugin file. Rename the file as necessary.
+- Added `src/Plugin.php` file to define plugin related properties in one place. The `Plugin` class mainly uses static properties. Use it like this, `Plugin::get_name()`. No need for initialization.
+- Added `Loader.php` file to bootstrap the plugin.
 - Localization support with `.pot` file
-- Security checks (`ABSPATH` and nonce validation)
-- Sample admin page template
-
----
-
-## [1.0.0] — 2025-08-10
-
-### Added
-- First stable release of WP Boilerplate Plugin
-- Includes all core scaffolding features for plugin development
-
-### Changed
-- Refined folder naming for clarity
-- Improved inline documentation and code comments
-
-### Fixed
-- Corrected text domain loading path
-- Removed unused placeholder assets
 
 ---
 
