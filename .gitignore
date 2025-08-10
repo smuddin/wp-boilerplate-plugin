@@ -1,48 +1,38 @@
-# Wordpress - ignore core, configuration, examples, uploads and logs.
-# https://github.com/github/gitignore/blob/main/WordPress.gitignore
+# 🌐 WordPress Plugin Gitignore
 
-# Core
-#
-# Note: if you want to stage/commit WP core files
-# you can delete this whole section/until Configuration.
-/wp-admin/
-/wp-content/index.php
-/wp-content/languages
-/wp-content/plugins/index.php
-/wp-content/themes/index.php
-/wp-includes/
-/index.php
-/license.txt
-/readme.html
-/wp-*.php
-/xmlrpc.php
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
 
-# Configuration
-wp-config.php
+# Composer
+vendor/
+composer.lock
 
-# Example themes
-/wp-content/themes/twenty*/
-
-# Example plugin
-/wp-content/plugins/hello.php
-
-# Uploads
-/wp-content/uploads/
-
-# Log files
+# PHP
 *.log
+*.php~ 
+*.swp
+*.swo
 
-# htaccess
-/.htaccess
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# All plugins
-#
-# Note: If you wish to whitelist plugins,
-# uncomment the next line
-#/wp-content/plugins
+# OS-specific
+.DS_Store
+Thumbs.db
 
-# All themes
-#
-# Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
+# Plugin-specific
+.env.local
+.env.production
+*.pot~
+*.mo~
+*.po~
+*.bak
+*.orig
