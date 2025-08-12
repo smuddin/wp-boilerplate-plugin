@@ -6,10 +6,10 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
-## [1.0.0] = 2025-08-10
+## [1.0.0] = 2025-08-12
 
 ### Added
-- First public release
+- Added index.php file in main directory to prevent directory listing.
 
 ---
 
