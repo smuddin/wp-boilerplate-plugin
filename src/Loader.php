@@ -6,6 +6,8 @@ defined( 'ABSPATH' ) || exit;
 
 class Loader
 {
+    const TABLE_NAME = 'my_table';
+
     public function __construct()
     {
         // add your necessary hooks and filters here
@@ -23,6 +25,40 @@ class Loader
         load_plugin_textdomain( Plugin::get_domain(), false, Plugin::get_domain() . '/languages/' );
 
         new PluginFeature();
+    }
+
+    public static function activate()
+    {
+        self::create_table();
+    }
+
+    public static function deactivate()
+    {
+    }
+
+    public static function uninstall()
+    {
+    }
+
+    private function create_table()
+    {
+        global $wpdb;
+        
+        $table_name = $wpdb->prefix . self::TABLE_NAME;
+        $charset_collate = $wpdb->get_charset_collate();
+
+        $sql = "CREATE TABLE {$table_name} (
+            my_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+            my_name VARCHAR(4) NOT NULL,
+            my_address TEXT,
+            my_url VARCHAR(1024),
+            pn_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            pn_updated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (my_id)
+        ) $charset_collate;";
+
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+        dbDelta( $sql );
     }
 
     private function check_required_plugins()

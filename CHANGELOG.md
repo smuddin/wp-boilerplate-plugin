@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ### Added
 - Added index.php file in main directory to prevent directory listing.
+- Added activation and deactivation code with an example of custom table creation.
 
 ---
 

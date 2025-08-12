@@ -15,3 +15,4 @@ Class based WordPress starter plugin. Accumulate best practices in developing Wo
 6. Final check in `src/Loader.php` and `src/Plugin.php` file for any error.
 7. Check required plugin list in `src/Plugin.php` file and update the array accoringly.
 8. Remove template folder, if you don't have WC template.
+9. Remove activation or deactivation code, if you don't need it.
