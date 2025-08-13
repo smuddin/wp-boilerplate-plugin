@@ -40,7 +40,7 @@ class Loader
     {
     }
 
-    private function create_table()
+    private static function create_table()
     {
         global $wpdb;
         

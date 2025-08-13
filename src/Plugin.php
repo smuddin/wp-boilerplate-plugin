@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
 final class Plugin
 {
     public const NAME    = 'My Plugin';
-    public const VERSION = '1.0.0';
+    public const VERSION = '1.0.1';
     public const DOMAIN  = 'my-plugin';
 
     private function __construct() {}

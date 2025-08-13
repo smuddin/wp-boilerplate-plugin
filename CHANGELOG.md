@@ -6,6 +6,14 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [1.0.1] = 2025-08-13
+
+### Fixed
+- Fatal error when activating plugin caused by calling a non-static method `create_table()` statically in `Loader::activate()` - [Issue #2](https://github.com/smuddin/wp-boilerplate-plugin/issues/2).
+
+
+---
+
 ## [1.0.0] = 2025-08-12
 
 ### Added
