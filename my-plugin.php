@@ -3,7 +3,7 @@
  * Plugin Name:       My Plugin
  * Plugin URI:        https://github.com/smuddin/woocommerce-bookstore
  * Description:       Write a proper description of your plugin here.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            SM Uddin
  * Author URI:        https://arifuddin.xyz/
  * Requires Plugins:  woocommerce
