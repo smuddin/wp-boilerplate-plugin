@@ -13,6 +13,6 @@ Class based WordPress starter plugin. Accumulate best practices in developing Wo
 4. Remove `"files": ["includes/template-functions.php"]` line `composer.json` file and `includes/template-functions.php` file if you don't have non-class files or any file outside `src` folder.
 5. Run `composer install` command
 6. Final check in `src/Loader.php` and `src/Plugin.php` file for any error.
-7. Check required plugin list in `src/Plugin.php` file and update the array accoringly.
+7. Check required plugin list in `src/Loader.php` file and update the array accoringly.
 8. Remove template folder, if you don't have WC template.
 9. Remove activation or deactivation code, if you don't need it.
