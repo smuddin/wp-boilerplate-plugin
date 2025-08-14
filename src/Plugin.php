@@ -17,7 +17,7 @@ final class Plugin
         throw new \Exception('Cannot unserialize Plugin class.');
     }
 
-    public static function init(): void
+    public static function run(): void
     {
         new Loader();
     }

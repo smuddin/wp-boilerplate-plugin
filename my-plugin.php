@@ -28,4 +28,4 @@ register_activation_hook( __FILE__, [ Smuddin\MyPlugin\Loader::class, 'activate'
 register_deactivation_hook( __FILE__, [ Smuddin\MyPlugin\Loader::class, 'deactivate' ] );
 register_uninstall_hook( __FILE__, [ Smuddin\MyPlugin\Loader::class, 'uninstall' ] );
 
-Plugin::init();
+Plugin::run();
