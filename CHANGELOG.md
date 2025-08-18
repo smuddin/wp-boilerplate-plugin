@@ -6,6 +6,13 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## Unreleased
+
+### Changed
+- Refactor `Plugin::get_dir()` and `Plugin::get_uri()` functions. Make it more flexible for append path.
+
+---
+
 ## [1.0.1] = 2025-08-14
 
 ### Fixed

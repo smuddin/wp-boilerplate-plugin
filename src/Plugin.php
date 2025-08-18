@@ -37,19 +37,22 @@ final class Plugin
         return self::DOMAIN;
     }
 
-    public static function get_dir( string $append_dir = '' ): string
+    public static function get_dir( string $append_path = '', bool $is_file = false ): string
     {
-        $base = trailingslashit( WP_PLUGIN_DIR . '/'. self::DOMAIN );
-        $append = ltrim( $append_dir, '/' );
-
-        return $base . $append;
+        return self::build_path( WP_PLUGIN_DIR, $append_path, $is_file );
     }
 
-    public static function get_uri( string $append_uri = '' ): string
+    public static function get_uri( string $append_uri = '', bool $is_file = false ): string
     {
-        $base = trailingslashit( WP_PLUGIN_URL . '/'. self::DOMAIN );
-        $append = ltrim( $append_uri, '/' );
-        
-        return $base . $append;
+        return self::build_path( WP_PLUGIN_URL, $append_uri, $is_file );
+    }
+
+    private static function build_path( string $base, string $path, bool $is_file ): string
+    {
+        $base = trailingslashit( $base . '/' . self::DOMAIN );
+        $path = ltrim( $path, '/' );
+        $full = $base . $path;
+
+        return $is_file ? $full : trailingslashit( $full );
     }
 }
