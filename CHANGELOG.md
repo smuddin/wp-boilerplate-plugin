@@ -10,6 +10,10 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ### Changed
 - Refactor `Plugin::get_dir()` and `Plugin::get_uri()` functions. Make it more flexible for append path.
+- Replaced `self` with `static` keyword for late static binding, and removed the `final` keyword from the `Plugin` class to allow inheritance and improve extensibility.
+
+### Added
+- Refactored `check_required_plugins()` to accept a custom array of plugin slugs. `Loader` class now comes with predefined array for common required plugins.
 
 ---
 

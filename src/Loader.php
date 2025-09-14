@@ -6,6 +6,7 @@ defined( 'ABSPATH' ) || exit;
 
 class Loader
 {
+    private static array $plugins = [];
     const TABLE_NAME = 'my_table';
 
     public function __construct()
@@ -17,6 +18,7 @@ class Loader
 
     public function load()
     {
+        $required_plugins = [ 'woocommerce' ];
         if ( ! $this->check_required_plugins() ) {
             return;
         }
@@ -61,19 +63,30 @@ class Loader
         dbDelta( $sql );
     }
 
-    private function check_required_plugins()
+    private function check_required_plugins( $required_plugins = [] )
     {
+        $plugin_list = self::get_plugins();
+        $resolved_required_plugins = [];
+        $plugin_active = [];
+
+        foreach ( $required_plugins as $key => $plugin ) {
+            if ( is_array( $plugin ) ) {
+                $resolved_required_plugins[$key] = $plugin;
+                $plugin_active[] = $plugin['is_active'];
+            } else {
+                if ( ! empty( $plugin_list[$plugin] ) ) {
+                    $resolved_required_plugins[$plugin] = $plugin_list[$plugin];
+                    $plugin_active[] = $plugin_list[$plugin]['is_active'];
+                }
+            }
+        }
+
+        $required_plugins = $resolved_required_plugins;
+
+
         if ( $this->is_required_plugins_active() ) {
             return true;
         }
-
-        $required_plugins[] = [
-            'name' => 'WooCommerce',
-            'file' => 'woocommerce/woocommerce.php',
-            'url' => 'https://wordpress.org/plugins/woocommerce/',
-            'button' => __( 'Activate WooCommerce', Plugin::get_domain() ),
-            'is_active' => class_exists('\WooCommerce') && class_exists('\WC_AJAX'),
-        ];
 
         $action_buttons = '';
         if ( current_user_can( 'activate_plugins' ) ) {
@@ -117,10 +130,9 @@ class Loader
         return false;
     }
 
-    private function is_required_plugins_active()
+    private function is_required_plugins_active( $plugins = [] )
     {
         $is_active = true;
-        $plugins['woocommerce'] = class_exists('\WooCommerce') && class_exists('\WC_AJAX');
 
         foreach ( $plugins as $plugin ) {
             if ( $plugin === false ) {
@@ -130,5 +142,22 @@ class Loader
         }
 
         return $is_active;
+    }
+
+    public static function get_plugins()
+    {
+        if ( empty( self::$plugins ) ) {
+            self::$plugins = [
+                'woocommerce' => [
+                    'name'      => 'WooCommerce',
+                    'file'      => 'woocommerce/woocommerce.php',
+                    'url'       => 'https://wordpress.org/plugins/woocommerce/',
+                    'button'    => __( 'Activate WooCommerce', Plugin::get_domain() ),
+                    'is_active' => class_exists('\WooCommerce') && class_exists('\WC_AJAX'),
+                ]
+            ];
+        }
+
+        return self::$plugins;
     }
 }

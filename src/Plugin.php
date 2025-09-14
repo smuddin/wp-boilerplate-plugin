@@ -4,10 +4,10 @@ namespace Smuddin\MyPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-final class Plugin
+class Plugin
 {
     public const NAME    = 'My Plugin';
-    public const VERSION = '1.0.1';
+    public const VERSION = '1.0.3';
     public const DOMAIN  = 'my-plugin';
 
     private function __construct() {}
@@ -24,17 +24,17 @@ final class Plugin
 
     public static function get_name(): string
     {
-        return self::NAME;
+        return static::NAME;
     }
 
     public static function get_version(): string
     {
-        return self::VERSION;
+        return static::VERSION;
     }
 
     public static function get_domain(): string
     {
-        return self::DOMAIN;
+        return static::DOMAIN;
     }
 
     public static function get_dir( string $append_path = '', bool $is_file = false ): string
@@ -49,7 +49,7 @@ final class Plugin
 
     private static function build_path( string $base, string $path, bool $is_file ): string
     {
-        $base = trailingslashit( $base . '/' . self::DOMAIN );
+        $base = trailingslashit( $base . '/' . static::DOMAIN );
         $path = ltrim( $path, '/' );
         $full = $base . $path;
 
