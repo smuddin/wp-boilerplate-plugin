@@ -21,11 +21,10 @@ use Smuddin\MyPlugin\Plugin;
 
 defined( 'ABSPATH' ) || exit;
 
-// require autoloader
 require_once __DIR__ . '/vendor/autoload.php';
 
 register_activation_hook( __FILE__, [ Smuddin\MyPlugin\Loader::class, 'activate' ] );
 register_deactivation_hook( __FILE__, [ Smuddin\MyPlugin\Loader::class, 'deactivate' ] );
 register_uninstall_hook( __FILE__, [ Smuddin\MyPlugin\Loader::class, 'uninstall' ] );
 
-Plugin::run();
+add_action( 'plugins_loaded', function() { Plugin::run(); }, 5 );
